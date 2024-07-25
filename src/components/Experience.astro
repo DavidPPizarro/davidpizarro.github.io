@@ -1,0 +1,36 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE =
+[
+    {
+        date: "2024-07-17",
+        title: 'Evaluación de Seguridad Informática - Efectiva Tarma',
+        description: 'Desarrollo de una aplicación de almacenamiento de PDFs implementando RAID para la empresa Efectiva Tarma. Proyecto realizado en colaboración con un grupo de compañeros durante un período de cuatro meses.',        
+    },
+    {
+        date: "2024-06-26",
+        title: 'Aplicación de Gestión de Asociados - APFAT',
+        description: 'Desarrollo de una aplicación de gestión de asociados para la Asociación de Productores de Flores y Plantas Aromáticas Tarma (APFAT). Incluyó análisis de negocio, casos de uso de negocio y de sistema, y definición de requerimientos.',
+        link: '',
+    },
+    {
+        date: "2024-02-24",
+        title: 'Inicio de Proyectos',
+        description: 'Comienzo de los proyectos de evaluación de seguridad informática y desarrollo de aplicación de gestión de asociados.',
+        link: '',
+    }
+]
+
+---
+
+<ol class="relative border-s border-gray-200 ml-3">  
+    {
+        EXPERIENCE.map(experience => (                        
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience} />    
+            </li>
+        ))
+    }                
+    
+</ol>
