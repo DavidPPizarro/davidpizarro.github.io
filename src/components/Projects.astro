@@ -1,13 +1,67 @@
 ---
+import ElectronIcon from '../icons/Electron.astro';
+import CssIcon from '../icons/Css.astro';
+import JavaScriptIcon from '../icons/JavaScript.astro';
+import MySqlIcon from '../icons/MySql.astro';
+import PhpIcon from '../icons/Php.astro';
+import PythonIcon from '../icons/Python.astro';
+import NodeIcon from '../icons/Node.astro'
+
+const TAGS = {
+    CSS: {
+        name: 'CSS',
+        class: 'bg-black text-white',
+        icon: CssIcon,
+    },
+    ELECTRON: {
+        name: 'Electron',
+        class: 'bg-black text-white',
+        icon: ElectronIcon,
+    },
+    JAVASCRIPT:{
+        name: 'JavaScript',
+        class: 'bg-black text-white',
+        icon: JavaScriptIcon,
+    },
+    NODE:{
+        name: 'Node.js',
+        class: 'bg-black text-white',
+        icon: NodeIcon,
+    },
+    PYTHON:{
+        name: 'Python',
+        class: 'bg-black text-white',
+        icon: PythonIcon,
+    },
+    MYSQL:{
+        name: 'MySQL',
+        class: 'bg-black text-white',
+        icon: MySqlIcon,
+    },
+    PHP:{
+        name: 'Php',
+        class: 'bg-black text-white',
+        icon: PhpIcon,
+    }
+}
+
 const PROJECTS = 
 [
     {
-        title: 'Project 1',
-        description: 'ss',
+        title: 'Electron App - Gestión de Asociados',
+        description: 'Esta aplicación de escritorio está desarrollada en Electron y tiene como objetivo gestionar los pagos y deudas de los socios. La interfaz es intuitiva y permite a los usuarios administrar sus pagos de manera eficiente.',
         link: '#',
-        github: '#',
-        image: '#',
-        tags: ['HTML','CSS', 'JAVASCRIPT'],
+        github: 'https://github.com/DavidPizarro151/Gest.-Asociados-Electron',
+        image: '/projects/electron.webp',
+        tags: [TAGS.ELECTRON,TAGS.CSS,TAGS.JAVASCRIPT,TAGS.MYSQL,TAGS.NODE],
+    },
+    {
+        title: 'PDF Management System',
+        description: 'Este sistema está diseñado para almacenar y encriptar archivos PDF de manera segura. Además, soporta almacenamiento RAID para garantizar la redundancia y la seguridad de los datos. El backend está desarrollado en PHP y se utiliza Python para generar resúmenes de los archivos PDF.',
+        link: '#',
+        github: 'https://github.com/DavidPizarro151/Gesti-n-de-Documentos',
+        image: '/projects/docs.webp',
+        tags: [TAGS.PHP,TAGS.CSS,TAGS.JAVASCRIPT,TAGS.MYSQL,TAGS.PYTHON],
     }
 ]
 ---
@@ -16,9 +70,14 @@ const PROJECTS =
         <article>
             <h3 class="text-2xl font-semibold text-yellow-200 mb-2"></h3>{title}</h3>
             <p class="text-lg mb-4 text-pretty">{description}</p>
-            <ul>
+            <ul class="flex gap-x-2 flex-row">
                 {tags.map(tag => (
-                    <li>{tag}</li>
+                    <li>
+                        <span class=`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`>
+                        <tag.icon class="size-6"/>
+                        {tag.name}                
+                        </span>
+                    </li>
                 ))
                 }
             </ul>
@@ -29,3 +88,4 @@ const PROJECTS =
         </article>
     ))
 }
+
